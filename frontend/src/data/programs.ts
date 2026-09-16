@@ -1,0 +1,58 @@
+import { Program } from '../types/index.js';
+
+export const programsData: Program[] = [
+  {
+    id: 'bs-cs',
+    name: 'BS Computer Science',
+    shortDescription: 'Master algorithms, software systems, and computing fundamentals with cutting-edge laboratory training and modern theoretical depth.',
+    duration: '4 Years (8 Semesters)',
+    degreeType: 'Undergraduate',
+    department: 'Computer Science',
+    creditHours: 134,
+  },
+  {
+    id: 'bs-se',
+    name: 'BS Software Engineering',
+    shortDescription: 'Engineer scalable, fault-tolerant enterprise software systems leveraging modern DevOps, architecture patterns, and agile methodologies.',
+    duration: '4 Years (8 Semesters)',
+    degreeType: 'Undergraduate',
+    department: 'Software Engineering',
+    creditHours: 136,
+  },
+  {
+    id: 'bs-it',
+    name: 'BS Information Technology',
+    shortDescription: 'Design, administer, and maintain critical networked enterprise infrastructure, cloud platforms, and cyber infrastructure solutions.',
+    duration: '4 Years (8 Semesters)',
+    degreeType: 'Undergraduate',
+    department: 'Information Technology',
+    creditHours: 132,
+  },
+  {
+    id: 'bs-ai',
+    name: 'BS Artificial Intelligence',
+    shortDescription: 'Explore neural networks, computer vision, deep learning, and intelligent robotic systems driving the next industrial revolution.',
+    duration: '4 Years (8 Semesters)',
+    degreeType: 'Undergraduate',
+    department: 'Computer Science',
+    creditHours: 134,
+  },
+  {
+    id: 'bs-ds',
+    name: 'BS Data Science',
+    shortDescription: 'Transform raw multi-terabyte data streams into actionable intelligence with advanced predictive statistical modeling and big data analytics.',
+    duration: '4 Years (8 Semesters)',
+    degreeType: 'Undergraduate',
+    department: 'Computer Science',
+    creditHours: 134,
+  },
+  {
+    id: 'bs-cys',
+    name: 'BS Cyber Security',
+    shortDescription: 'Protect mission-critical data assets, defend against cyber threats, conduct penetration testing, and master cryptographic defenses.',
+    duration: '4 Years (8 Semesters)',
+    degreeType: 'Undergraduate',
+    department: 'Information Technology',
+    creditHours: 134,
+  },
+];
