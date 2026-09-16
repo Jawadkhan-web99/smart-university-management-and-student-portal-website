@@ -17,14 +17,14 @@ import { ThemeToggle } from '../ui/ThemeToggle';
 import { useAuth } from '../../context/AuthContext';
 
 const navLinks = [
-  { name: 'Home', href: '/#home' },
+  { name: 'Home', href: '/' },
   { name: 'About', href: '/#about' },
   { name: 'Programs', href: '/#programs' },
   { name: 'Departments', href: '/#departments' },
   { name: 'Faculty', href: '/#faculty' },
   { name: 'Admissions', href: '/#admissions' },
   { name: 'Events', href: '/#events' },
-  { name: 'Contact', href: '/#contact' },
+  { name: 'Contact', href: '/contact' },
 ];
 
 export function Navbar() {

@@ -1,4 +1,5 @@
 import React from 'react';
+import Link from 'next/link';
 import {
   GraduationCap,
   MapPin,
@@ -17,32 +18,43 @@ export function Footer() {
   const currentYear = new Date().getFullYear();
 
   const quickLinks = [
-    { name: 'About University', href: '#about' },
-    { name: 'Academic Departments', href: '#departments' },
-    { name: 'Undergraduate Programs', href: '#programs' },
-    { name: 'Distinguished Faculty', href: '#faculty' },
-    { name: 'Campus Announcements', href: '#announcements' },
-    { name: 'Upcoming Events', href: '#events' },
+    { name: 'About University', href: '/#about' },
+    { name: 'Academic Departments', href: '/#departments' },
+    { name: 'Degree Programs', href: '/#programs' },
+    { name: 'Distinguished Faculty', href: '/#faculty' },
+    { name: 'Campus Announcements', href: '/#announcements' },
+    { name: 'Upcoming Events', href: '/#events' },
+    { name: 'Student Portal', href: '/login' },
+    { name: 'Apply for Admission', href: '/register' },
+    { name: 'Contact & Support', href: '/contact' },
   ];
 
   const degreePrograms = [
-    { name: 'BS Computer Science', href: '#programs' },
-    { name: 'BS Software Engineering', href: '#programs' },
-    { name: 'BS Information Technology', href: '#programs' },
-    { name: 'BS Artificial Intelligence', href: '#programs' },
-    { name: 'BS Data Science', href: '#programs' },
-    { name: 'BS Cyber Security', href: '#programs' },
+    { name: 'BS Computer Science', href: '/#programs' },
+    { name: 'BS Software Engineering', href: '/#programs' },
+    { name: 'BS Information Technology', href: '/#programs' },
+    { name: 'BS Artificial Intelligence', href: '/#programs' },
+    { name: 'BS Data Science', href: '/#programs' },
+    { name: 'BS Cyber Security', href: '/#programs' },
+  ];
+
+  const socialLinks = [
+    { name: 'Facebook', href: 'https://facebook.com', icon: Facebook },
+    { name: 'Twitter', href: 'https://twitter.com', icon: Twitter },
+    { name: 'LinkedIn', href: 'https://linkedin.com', icon: Linkedin },
+    { name: 'Instagram', href: 'https://instagram.com', icon: Instagram },
+    { name: 'YouTube', href: 'https://youtube.com', icon: Youtube },
   ];
 
   return (
-    <footer id="contact" className="bg-slate-900 dark:bg-black text-slate-300 border-t border-slate-800">
+    <footer className="bg-[#050811] text-slate-300 border-t border-slate-800/80">
       {/* Top Footer Content */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-14 sm:py-16">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-10 lg:gap-8">
           {/* Col 1: University Info & Mission (4 cols) */}
           <div className="lg:col-span-4 space-y-4">
-            <div className="flex items-center gap-2.5">
-              <div className="w-10 h-10 rounded-xl bg-brand-600 text-white flex items-center justify-center shadow-md">
+            <Link href="/" className="inline-flex items-center gap-2.5 group">
+              <div className="w-10 h-10 rounded-xl bg-brand-600 text-white flex items-center justify-center shadow-md group-hover:scale-105 transition-transform">
                 <GraduationCap className="w-6 h-6" />
               </div>
               <div className="flex flex-col">
@@ -50,10 +62,10 @@ export function Footer() {
                   Apex<span className="text-brand-400">University</span>
                 </span>
                 <span className="text-[10px] font-semibold uppercase tracking-widest text-slate-400">
-                  Science & Technology
+                  Science &amp; Technology
                 </span>
               </div>
-            </div>
+            </Link>
 
             <p className="text-sm text-slate-400 leading-relaxed pr-4">
               A premier institution dedicated to academic rigor, state-of-the-art technological
@@ -61,47 +73,27 @@ export function Footer() {
               scientists, and technological leaders.
             </p>
 
-            {/* Social Media Placeholders */}
+            {/* Social Media Links */}
             <div className="pt-2">
               <span className="text-xs uppercase tracking-wider font-semibold text-slate-400 block mb-3">
                 Follow Our Campus
               </span>
               <div className="flex items-center gap-3">
-                <a
-                  href="#social-facebook"
-                  aria-label="Facebook"
-                  className="w-9 h-9 rounded-lg bg-slate-800 hover:bg-brand-600 text-slate-300 hover:text-white flex items-center justify-center transition-colors"
-                >
-                  <Facebook className="w-4 h-4" />
-                </a>
-                <a
-                  href="#social-twitter"
-                  aria-label="Twitter"
-                  className="w-9 h-9 rounded-lg bg-slate-800 hover:bg-brand-600 text-slate-300 hover:text-white flex items-center justify-center transition-colors"
-                >
-                  <Twitter className="w-4 h-4" />
-                </a>
-                <a
-                  href="#social-linkedin"
-                  aria-label="LinkedIn"
-                  className="w-9 h-9 rounded-lg bg-slate-800 hover:bg-brand-600 text-slate-300 hover:text-white flex items-center justify-center transition-colors"
-                >
-                  <Linkedin className="w-4 h-4" />
-                </a>
-                <a
-                  href="#social-instagram"
-                  aria-label="Instagram"
-                  className="w-9 h-9 rounded-lg bg-slate-800 hover:bg-brand-600 text-slate-300 hover:text-white flex items-center justify-center transition-colors"
-                >
-                  <Instagram className="w-4 h-4" />
-                </a>
-                <a
-                  href="#social-youtube"
-                  aria-label="YouTube"
-                  className="w-9 h-9 rounded-lg bg-slate-800 hover:bg-brand-600 text-slate-300 hover:text-white flex items-center justify-center transition-colors"
-                >
-                  <Youtube className="w-4 h-4" />
-                </a>
+                {socialLinks.map((s) => {
+                  const Icon = s.icon;
+                  return (
+                    <a
+                      key={s.name}
+                      href={s.href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      aria-label={s.name}
+                      className="w-9 h-9 rounded-xl bg-slate-800/90 hover:bg-brand-600 text-slate-300 hover:text-white flex items-center justify-center transition-all hover:-translate-y-0.5"
+                    >
+                      <Icon className="w-4 h-4" />
+                    </a>
+                  );
+                })}
               </div>
             </div>
           </div>
@@ -114,12 +106,12 @@ export function Footer() {
             <ul className="space-y-2.5 text-sm">
               {quickLinks.map((link) => (
                 <li key={link.name}>
-                  <a
+                  <Link
                     href={link.href}
                     className="text-slate-400 hover:text-brand-400 transition-colors inline-block"
                   >
                     {link.name}
-                  </a>
+                  </Link>
                 </li>
               ))}
             </ul>
@@ -133,12 +125,12 @@ export function Footer() {
             <ul className="space-y-2.5 text-sm">
               {degreePrograms.map((prog) => (
                 <li key={prog.name}>
-                  <a
+                  <Link
                     href={prog.href}
                     className="text-slate-400 hover:text-brand-400 transition-colors inline-flex items-center gap-1.5"
                   >
                     <span>{prog.name}</span>
-                  </a>
+                  </Link>
                 </li>
               ))}
             </ul>
@@ -150,20 +142,20 @@ export function Footer() {
               Contact Information
             </h3>
 
-            <div className="flex items-start gap-3 text-sm text-slate-400">
+            <Link href="/contact" className="flex items-start gap-3 text-sm text-slate-400 hover:text-slate-200 transition-colors">
               <MapPin className="w-4 h-4 text-brand-400 shrink-0 mt-1" />
               <span>University Avenue, Sector H-12, Institutional Area, Islamabad, Pakistan</span>
-            </div>
+            </Link>
 
-            <div className="flex items-center gap-3 text-sm text-slate-400">
+            <a href="tel:+9251111273986" className="flex items-center gap-3 text-sm text-slate-400 hover:text-brand-400 transition-colors">
               <Phone className="w-4 h-4 text-brand-400 shrink-0" />
               <span>+92 (51) 111-273-986</span>
-            </div>
+            </a>
 
-            <div className="flex items-center gap-3 text-sm text-slate-400">
+            <a href="mailto:admissions@apex.edu.pk" className="flex items-center gap-3 text-sm text-slate-400 hover:text-brand-400 transition-colors">
               <Mail className="w-4 h-4 text-brand-400 shrink-0" />
               <span>admissions@apex.edu.pk</span>
-            </div>
+            </a>
 
             <div className="flex items-center gap-3 text-sm text-slate-400">
               <Clock className="w-4 h-4 text-brand-400 shrink-0" />
@@ -174,21 +166,26 @@ export function Footer() {
       </div>
 
       {/* Bottom Sub-Footer / Copyright */}
-      <div className="border-t border-slate-800 bg-slate-950/80">
+      <div className="border-t border-slate-800/80 bg-black/50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-400">
           <p>
-            &copy; {currentYear} Apex University of Science & Technology. All rights reserved. Final Year Project.
+            &copy; {currentYear} Apex University of Science &amp; Technology. All rights reserved.
           </p>
 
           <div className="flex items-center gap-6">
-            <a href="#privacy" className="hover:text-slate-200 transition-colors">
-              Privacy Policy
-            </a>
-            <a href="#terms" className="hover:text-slate-200 transition-colors">
-              Terms of Service
-            </a>
-            <a href="#portal" className="hover:text-brand-400 transition-colors inline-flex items-center gap-1">
-              <span>Portal Status</span>
+            <Link href="/contact" className="hover:text-slate-200 transition-colors">
+              Helpdesk &amp; Privacy
+            </Link>
+            <Link href="/login" className="hover:text-slate-200 transition-colors">
+              Portal Access
+            </Link>
+            <a
+              href="http://localhost:5000/api/health"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:text-brand-400 transition-colors inline-flex items-center gap-1"
+            >
+              <span>API Health Status</span>
               <ExternalLink className="w-3 h-3" />
             </a>
           </div>
