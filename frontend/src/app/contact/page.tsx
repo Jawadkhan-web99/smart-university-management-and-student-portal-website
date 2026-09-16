@@ -14,6 +14,7 @@ import {
   Loader2,
   GraduationCap,
 } from 'lucide-react';
+import { apiFetch } from '../../utils/api';
 
 export default function ContactPage() {
   const [name, setName] = useState('');
@@ -30,21 +31,19 @@ export default function ContactPage() {
     setError('');
 
     try {
-      const res = await fetch('http://localhost:5000/api/admin/contact', {
+      const res = await apiFetch('/admin/contact', {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ name, email, subject, message }),
+        data: { name, email, subject, message },
       });
 
-      const json = await res.json();
-      if (json.success) {
+      if (res.success) {
         setSuccess(true);
         setName('');
         setEmail('');
         setSubject('');
         setMessage('');
       } else {
-        setError(json.message || 'Failed to submit message.');
+        setError(res.message || 'Failed to submit message.');
       }
     } catch {
       setError('Unable to submit your message. Please verify network connection.');

@@ -12,7 +12,19 @@ export const createApp = (): Application => {
   // Basic security and parsing middleware
   app.use(
     cors({
-      origin: config.corsOrigin,
+      origin: (origin, callback) => {
+        // Allow requests with no origin (curl, mobile, same-origin)
+        if (!origin) return callback(null, true);
+        if (
+          origin === config.corsOrigin ||
+          /\.vercel\.app$/.test(origin) ||
+          /^https?:\/\/localhost(:\d+)?$/.test(origin) ||
+          /^https?:\/\/127\.0\.0\.1(:\d+)?$/.test(origin)
+        ) {
+          return callback(null, true);
+        }
+        return callback(new Error('Blocked by CORS policy'));
+      },
       credentials: true,
     })
   );

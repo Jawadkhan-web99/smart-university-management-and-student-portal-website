@@ -2,6 +2,7 @@ import { Request, Response, NextFunction } from 'express';
 import mongoose from 'mongoose';
 import jwt from 'jsonwebtoken';
 import { User, IUser } from '../models/user.model.js';
+import { StudentProfile } from '../models/studentProfile.model.js';
 import { config } from '../config/env.js';
 import { ApiResponse } from '../utils/apiResponse.js';
 import { AuthenticatedRequest } from '../middleware/auth.middleware.js';
@@ -72,6 +73,20 @@ export const register = async (
       role: 'student', // Enforce student role
       phone: phone ? phone.trim() : undefined,
       isActive: true,
+    });
+
+    // Automatically create initial StudentProfile
+    const generatedStudentId = `STU-${new Date().getFullYear()}-${Math.floor(
+      1000 + Math.random() * 9000
+    )}`;
+
+    await StudentProfile.create({
+      user: newUser._id,
+      studentId: generatedStudentId,
+      program: 'BS Computer Science',
+      admissionYear: new Date().getFullYear(),
+      phone: phone ? phone.trim() : '',
+      enrollmentStatus: 'enrolled',
     });
 
     const token = generateToken(newUser);
