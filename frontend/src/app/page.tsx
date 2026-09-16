@@ -12,7 +12,7 @@ import { Footer } from '../components/layout/Footer';
 
 export default function HomePage() {
   return (
-    <div className="min-h-screen flex flex-col bg-white dark:bg-slate-950 text-slate-900 dark:text-slate-100 transition-colors duration-200">
+    <div className="min-h-screen flex flex-col bg-transparent text-slate-900 dark:text-slate-100 transition-colors duration-200">
       {/* Sticky Header Navbar */}
       <Navbar />
 
