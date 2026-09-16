@@ -56,8 +56,8 @@ export function Navbar() {
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-200 ${
         scrolled
-          ? 'bg-white/90 dark:bg-slate-950/90 backdrop-blur-md shadow-sm border-b border-slate-200/80 dark:border-slate-800/80 py-3'
-          : 'bg-white/80 dark:bg-slate-950/80 backdrop-blur-sm border-b border-slate-200/40 dark:border-slate-800/40 py-4'
+          ? 'bg-[#060c1d]/95 backdrop-blur-md shadow-lg border-b border-slate-800 py-3'
+          : 'bg-[#060c1d]/85 backdrop-blur-md border-b border-white/10 py-4'
       }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -71,10 +71,10 @@ export function Navbar() {
               <GraduationCap className="w-6 h-6" />
             </div>
             <div className="flex flex-col">
-              <span className="text-lg font-extrabold tracking-tight text-slate-900 dark:text-white leading-tight">
-                Apex<span className="text-brand-600 dark:text-brand-400">Uni</span>
+              <span className="text-lg font-extrabold tracking-tight text-white leading-tight">
+                Apex<span className="text-sky-400">Uni</span>
               </span>
-              <span className="text-[10px] font-semibold uppercase tracking-widest text-slate-500 dark:text-slate-400">
+              <span className="text-[10px] font-semibold uppercase tracking-widest text-slate-400">
                 Science & Tech
               </span>
             </div>
@@ -86,7 +86,7 @@ export function Navbar() {
               <a
                 key={link.name}
                 href={link.href}
-                className="px-3 py-1.5 rounded-lg text-sm font-medium text-slate-600 hover:text-slate-900 hover:bg-slate-100/80 dark:text-slate-300 dark:hover:text-white dark:hover:bg-slate-800/60 transition-colors"
+                className="px-3 py-1.5 rounded-lg text-sm font-medium text-slate-300 hover:text-white hover:bg-white/10 transition-colors"
               >
                 {link.name}
               </a>
@@ -100,15 +100,15 @@ export function Navbar() {
             {/* When Logged In: Show User Name, Dashboard & Logout */}
             {isAuthenticated && user ? (
               <div className="flex items-center gap-2.5">
-                <div className="flex items-center gap-2 px-3 py-1.5 rounded-xl bg-slate-100 dark:bg-slate-800/80 border border-slate-200 dark:border-slate-700/60 text-xs">
+                <div className="flex items-center gap-2 px-3 py-1.5 rounded-xl bg-slate-900 border border-slate-800 text-xs">
                   <div className="w-6 h-6 rounded-full bg-brand-600 text-white flex items-center justify-center font-bold text-[11px]">
                     {user.firstName[0]}
                   </div>
                   <div className="flex flex-col text-left">
-                    <span className="font-bold text-slate-900 dark:text-white truncate max-w-[120px]">
+                    <span className="font-bold text-white truncate max-w-[120px]">
                       {user.firstName}
                     </span>
-                    <span className="text-[10px] font-semibold uppercase text-brand-600 dark:text-brand-400">
+                    <span className="text-[10px] font-semibold uppercase text-sky-400">
                       {user.role}
                     </span>
                   </div>
@@ -116,7 +116,7 @@ export function Navbar() {
 
                 <Link
                   href={`/dashboard/${user.role}`}
-                  className="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-xl text-xs font-bold text-white bg-brand-600 hover:bg-brand-700 active:scale-[0.98] shadow-sm transition-all"
+                  className="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-xl text-xs font-bold text-white bg-brand-600 hover:bg-brand-500 active:scale-[0.98] shadow-sm transition-all"
                 >
                   <LayoutDashboard className="w-3.5 h-3.5" />
                   <span>Dashboard</span>
@@ -126,7 +126,7 @@ export function Navbar() {
                   type="button"
                   onClick={logout}
                   title="Log out"
-                  className="p-2 rounded-xl text-slate-500 hover:text-rose-600 hover:bg-rose-50 dark:hover:bg-rose-950/40 border border-slate-200 dark:border-slate-800 transition-colors"
+                  className="p-2 rounded-xl text-slate-400 hover:text-rose-400 hover:bg-rose-950/40 border border-slate-800 transition-colors"
                 >
                   <LogOut className="w-4 h-4" />
                 </button>
@@ -136,15 +136,15 @@ export function Navbar() {
               <div className="flex items-center gap-2">
                 <Link
                   href="/login"
-                  className="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-xl text-sm font-semibold text-slate-700 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800 border border-slate-200 dark:border-slate-700/60 transition-colors"
+                  className="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-xl text-sm font-semibold text-slate-200 hover:text-white hover:bg-white/10 border border-white/20 transition-colors"
                 >
-                  <LogIn className="w-4 h-4 text-brand-600 dark:text-brand-400" />
+                  <LogIn className="w-4 h-4 text-sky-400" />
                   <span>Login</span>
                 </Link>
 
                 <Link
                   href="/register"
-                  className="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-xl text-sm font-semibold text-white bg-brand-600 hover:bg-brand-700 active:scale-[0.98] shadow-sm transition-all"
+                  className="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-xl text-sm font-semibold text-white bg-brand-600 hover:bg-brand-500 active:scale-[0.98] shadow-sm transition-all"
                 >
                   <UserPlus className="w-4 h-4" />
                   <span>Register</span>
@@ -161,7 +161,7 @@ export function Navbar() {
               type="button"
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
               aria-label="Toggle navigation menu"
-              className="p-2 rounded-lg text-slate-700 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800 focus:outline-none focus:ring-2 focus:ring-brand-500"
+              className="p-2 rounded-lg text-slate-200 hover:text-white hover:bg-white/10 focus:outline-none focus:ring-2 focus:ring-brand-500"
             >
               {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
             </button>
@@ -171,14 +171,14 @@ export function Navbar() {
 
       {/* Mobile Menu Drawer */}
       {mobileMenuOpen && (
-        <div className="lg:hidden border-b border-slate-200 dark:border-slate-800 bg-white/95 dark:bg-slate-950/95 backdrop-blur-xl px-4 pt-3 pb-6 space-y-3 shadow-xl animate-in slide-in-from-top-2 duration-200">
+        <div className="lg:hidden border-b border-slate-800 bg-[#060c1d]/95 backdrop-blur-xl px-4 pt-3 pb-6 space-y-3 shadow-xl animate-in slide-in-from-top-2 duration-200 text-white">
           <nav className="flex flex-col space-y-1">
             {navLinks.map((link) => (
               <a
                 key={link.name}
                 href={link.href}
                 onClick={() => setMobileMenuOpen(false)}
-                className="flex items-center justify-between px-3 py-2.5 rounded-lg text-base font-medium text-slate-700 hover:text-slate-900 hover:bg-slate-100 dark:text-slate-200 dark:hover:text-white dark:hover:bg-slate-800/80 transition-colors"
+                className="flex items-center justify-between px-3 py-2.5 rounded-lg text-base font-medium text-slate-200 hover:text-white hover:bg-white/10 transition-colors"
               >
                 <span>{link.name}</span>
                 <ChevronRight className="w-4 h-4 text-slate-400" />
@@ -186,18 +186,18 @@ export function Navbar() {
             ))}
           </nav>
 
-          <div className="pt-4 border-t border-slate-200 dark:border-slate-800 space-y-2">
+          <div className="pt-4 border-t border-slate-800 space-y-2">
             {isAuthenticated && user ? (
               <div className="space-y-2">
-                <div className="flex items-center gap-3 p-3 rounded-xl bg-slate-100 dark:bg-slate-800">
+                <div className="flex items-center gap-3 p-3 rounded-xl bg-slate-900 border border-slate-800">
                   <div className="w-9 h-9 rounded-full bg-brand-600 text-white flex items-center justify-center font-bold text-sm">
                     {user.firstName[0]}
                   </div>
                   <div>
-                    <p className="text-sm font-bold text-slate-900 dark:text-white">
+                    <p className="text-sm font-bold text-white">
                       {user.fullName}
                     </p>
-                    <p className="text-xs uppercase font-semibold text-brand-600 dark:text-brand-400">
+                    <p className="text-xs uppercase font-semibold text-sky-400">
                       {user.role} &bull; {user.email}
                     </p>
                   </div>
@@ -206,7 +206,7 @@ export function Navbar() {
                 <Link
                   href={`/dashboard/${user.role}`}
                   onClick={() => setMobileMenuOpen(false)}
-                  className="w-full flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl text-sm font-bold text-white bg-brand-600 hover:bg-brand-700 transition-colors"
+                  className="w-full flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl text-sm font-bold text-white bg-brand-600 hover:bg-brand-500 transition-colors"
                 >
                   <LayoutDashboard className="w-4 h-4" />
                   <span>Go to My Dashboard</span>
@@ -218,7 +218,7 @@ export function Navbar() {
                     setMobileMenuOpen(false);
                     logout();
                   }}
-                  className="w-full flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl text-sm font-semibold text-rose-600 dark:text-rose-400 bg-rose-50 dark:bg-rose-950/50 hover:bg-rose-100 transition-colors"
+                  className="w-full flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl text-sm font-semibold text-rose-400 bg-rose-950/40 hover:bg-rose-900/60 border border-rose-900/40 transition-colors"
                 >
                   <LogOut className="w-4 h-4" />
                   <span>Log Out</span>
@@ -229,16 +229,16 @@ export function Navbar() {
                 <Link
                   href="/login"
                   onClick={() => setMobileMenuOpen(false)}
-                  className="flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl text-sm font-semibold text-slate-700 dark:text-slate-200 bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 transition-colors"
+                  className="flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl text-sm font-semibold text-slate-200 bg-white/10 hover:bg-white/15 border border-white/20 transition-colors"
                 >
-                  <LogIn className="w-4 h-4 text-brand-600" />
+                  <LogIn className="w-4 h-4 text-sky-400" />
                   <span>Login</span>
                 </Link>
 
                 <Link
                   href="/register"
                   onClick={() => setMobileMenuOpen(false)}
-                  className="flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl text-sm font-bold text-white bg-brand-600 hover:bg-brand-700 transition-colors"
+                  className="flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl text-sm font-bold text-white bg-brand-600 hover:bg-brand-500 transition-colors"
                 >
                   <UserPlus className="w-4 h-4" />
                   <span>Register</span>

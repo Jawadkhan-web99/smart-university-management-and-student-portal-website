@@ -5,7 +5,7 @@ import { programsData } from '../../data/programs';
 
 export function ProgramsSection() {
   return (
-    <section id="programs" className="py-20 bg-slate-50/60 dark:bg-slate-900/40 border-b border-slate-200/80 dark:border-slate-800/80">
+    <section id="programs" className="py-24 bg-white dark:bg-slate-950 border-b border-slate-200/80 dark:border-slate-800/80">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <SectionHeading
           badge="DEGREE PROGRAMS"

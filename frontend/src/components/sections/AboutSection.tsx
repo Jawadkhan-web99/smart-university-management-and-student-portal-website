@@ -40,7 +40,7 @@ export function AboutSection() {
   ];
 
   return (
-    <section id="about" className="py-20 bg-white/70 dark:bg-slate-900/30 backdrop-blur-sm border-b border-slate-200/70 dark:border-slate-800/70">
+    <section id="about" className="py-24 bg-slate-50 dark:bg-slate-900/60 border-b border-slate-200/80 dark:border-slate-800/80">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <SectionHeading
           badge="ABOUT OUR INSTITUTION"
@@ -55,7 +55,7 @@ export function AboutSection() {
             return (
               <div
                 key={stat.label}
-                className="p-6 rounded-2xl bg-slate-50 dark:bg-slate-900/60 border border-slate-200/70 dark:border-slate-800 text-center hover:shadow-md transition-shadow"
+                className="p-6 rounded-2xl bg-white dark:bg-slate-800/80 border border-slate-200/80 dark:border-slate-700/80 text-center shadow-xs hover:shadow-lg transition-all"
               >
                 <div className="w-10 h-10 mx-auto mb-3 rounded-xl bg-brand-100 dark:bg-brand-950 text-brand-600 dark:text-brand-400 flex items-center justify-center">
                   <Icon className="w-5 h-5" />
@@ -113,7 +113,7 @@ export function AboutSection() {
               return (
                 <div
                   key={pillar.title}
-                  className="flex items-start gap-4 p-5 rounded-2xl bg-slate-50 dark:bg-slate-900/60 border border-slate-200/70 dark:border-slate-800 hover:border-brand-500/40 transition-colors"
+                  className="flex items-start gap-4 p-5 rounded-2xl bg-white dark:bg-slate-800/80 border border-slate-200/80 dark:border-slate-700/80 hover:border-brand-500/50 shadow-xs hover:shadow-md transition-all"
                 >
                   <div className="w-11 h-11 rounded-xl bg-brand-500/10 text-brand-600 dark:text-brand-400 flex items-center justify-center shrink-0 mt-0.5">
                     <Icon className="w-5 h-5" />

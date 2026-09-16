@@ -5,7 +5,7 @@ import { announcementsData } from '../../data/announcements';
 
 export function AnnouncementsSection() {
   return (
-    <section id="announcements" className="py-20 bg-white/70 dark:bg-slate-900/30 backdrop-blur-sm border-b border-slate-200/70 dark:border-slate-800/70">
+    <section id="announcements" className="py-24 bg-slate-50 dark:bg-slate-900/60 border-b border-slate-200/80 dark:border-slate-800/80">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <SectionHeading
           badge="CAMPUS NOTICES"
